@@ -2,6 +2,24 @@
 
 using namespace std;
 
+
+//using kadane's algorithm in maximum subarray sum -> o(n) time complexity
+
+int subarraySum3(int a[],int n )
+{
+	int cs = 0, ms = 0;
+
+	for (int i = 0;i < n;i++)
+	{
+		cs += a[i];
+		cs = cs < 0 ? 0:cs;
+		ms = max(ms, cs);
+	}
+	return ms;
+}
+
+
+
 //Using prefix array to reduce the time complexity 
 //calculate sum using the prefix array with O(1) time complexity
 
@@ -69,6 +87,12 @@ void subarraySum1()
 
 int main()
 {
-	subarraySum1();
-	subarraySum2();
+	//subarraySum1();
+	//subarraySum2();
+
+	/*int a[] = { -2,3,4,-1,5,-12,6,1,3 };
+	int n = sizeof(a) / sizeof(a[0]);
+
+	cout<<subarraySum3(a, n);*/
+
 }
